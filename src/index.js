@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import AppHeader from "./components/AppHeader";
+import SearchBox from "./components/SearchBox";
+import TodoList from "./components/TodoList";
 
-ReactDOM.render(<App />, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const App = () => {
+    const todoData = [
+        { lable: 'Drink coffee', important: false},
+        { lable: 'Learn React', important: true},
+        { lable: 'Have lanch', important: false},
+    ]
+
+    return(
+        <div>
+            <AppHeader/>
+            <SearchBox/>
+            <TodoList data = {todoData}/>
+        </div>
+
+    )
+};
+
+
+ReactDOM.render (<App/>, document.getElementById('root'));
